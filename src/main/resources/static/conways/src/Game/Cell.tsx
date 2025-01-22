@@ -1,9 +1,13 @@
 import React from 'react';
 
-export function Cell({state, uniqueKey, handleCellClick}: {state:boolean, uniqueKey:string, handleCellClick:Function}) {
+export function Cell({state, handleCellClick}: {state:boolean, handleCellClick:Function}) {
     
     return (
-        <button className="cell" onClick={handleCellClick} key={uniqueKey} style={{"backgroundColor": state ? "white" : "black"}}> 
+        <button 
+            className="cell" 
+            onClick={handleCellClick} 
+            style={{"backgroundColor": state ? "white" : "black"}}
+        > 
             {state ? "X" : "O"}
         </button>
     )

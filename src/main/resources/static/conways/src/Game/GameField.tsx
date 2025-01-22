@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fragment } from 'react';
 import { Cell } from './Cell.tsx';
 import { changeCell } from '../API/GameAPI.ts';
 
@@ -16,7 +17,9 @@ export function GameField({gameField, updateField}: {gameField:boolean[][], upda
                     {cell_row.map((cell, col_index) => {
                         var state:boolean = cell.state
                         return (
-                            <Cell key={col_index} state={state} uniqueKey={row_index + "" + col_index} handleCellClick={() => handleCellClick(col_index, row_index)}/>
+                            <Fragment key={row_index + "" + col_index}>
+                                <Cell state={state} handleCellClick={() => handleCellClick(col_index, row_index)}/>
+                            </Fragment>
                         ) 
                     })}
                 </div>
